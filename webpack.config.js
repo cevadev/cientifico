@@ -31,5 +31,37 @@ module.exports = {
         extensions: ['.js'], //solo utilizaremos en este caso archivos JS
     },
 
-    //Definimos un modulos con las reglas necesarias que vas a tener el proyecto.
+    //Definimos un modulos con las reglas necesarias que vas a tener el proyecto. Creamos la regla de babel con la que 
+    //vamos a preparar el proyecto para que sea compatible con todos los navegadores
+    module: {
+        //definimos las reglas que vamos a utilizar en un array
+        rules: [
+            //estructura de babel, esta estructura incluye:
+            {
+                //test para saber como vamos a identificar los archivos segun se encuentran en nuestro entorno
+                test: /\.js?$/,
+                //excluimos la carpeta de node_modules y todos los archivos js que encuentre alli
+                exclude: /node_modules/,
+                //Utilizamos un loader como configuracion establecida para trabajar todo el codigo.
+                use: {
+                    loader: 'bable-loader',
+                }
+            }
+        ]
+    },
+
+    //Establecemos los plugins que vamos a utilizar. Vamos a utilizar los HtmlWebpackPlugin, el cual
+    //nos permite trabajar con los archivos html
+    plugins: [
+        new HtmlWebpackPlugin([
+            {
+                //Inject nos permite a un archivo html inyectarle un valor
+                inject: true,
+                //indicamos donde se encuentra nuestro template base principal
+                template: './public/index.html',
+                //indicamos hacia donde lo vamos a guardar
+                filename: './index.html'
+            }
+        ])
+    ]
 }
