@@ -5,7 +5,7 @@ const path = require('path');
 //requerimos el archivo para trabajar con html, este archivo viene con la dependencia que instalamos de 
 //html-webpack-plugin
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { resolve } = require('path');
+//const { resolve } = require('path');
 
 /**
  * Modulos que vamos a exportar donde viene cada configuracion de lo que va a suceder.
@@ -44,7 +44,7 @@ module.exports = {
                 exclude: /node_modules/,
                 //Utilizamos un loader como configuracion establecida para trabajar todo el codigo.
                 use: {
-                    loader: 'bable-loader',
+                    loader: 'babel-loader',
                 }
             }
         ]
