@@ -13,15 +13,24 @@ const Home = async ()=>{
      * div -> seccion de los personajes o parte principal
      * article -> lugar donde vivira cada personaje
      * anchor (a) -> etiqueta ancla que nos permite generar un enlace hacia el detalle del personaje
+     * characters.results.map() -> Todos los personajes devueltos estan dentro de results. Al ser unobjeto iterable
+     * con map() nos permite retornar un nuevo arreglo con la estructura que le este pasando que será el template
+     * asi dentro del template podremos acceder a las variables de cada personaje
+     * 
+     * map nos genera un arreglo pero los elemento del arreglo debemos unirlos por eso utilizamos .join('') por defecto
+     * intenta separarlo con , lo cual no queremos por eso colocamos '' que indica que lo separe con nada
      */
     const view = `
         <div class="Characters">
-            <article class="Character-item">
-                <a href="#/1/">
-                    <img src="image" alt="name" />
-                    <h2>Name</h2>
+
+            ${characters.results.map(character =>`
+                <article class="Character-item">
+                <a href="#/${character.id}/">
+                    <img src="${character.image}" alt="${character.name}" />
+                    <h2>${character.name}</h2>
                 </a>
             </article>
+            `).join('')}
         </div>
     `;
     return view;
