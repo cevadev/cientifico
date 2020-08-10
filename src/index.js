@@ -8,3 +8,8 @@ import router from './routes';
 //listos y cargados dentro del navegador vamos a invocar el codigo que recibimos.
 //Pasamos el evento que debe escuchar como la funcion que importamos de router.
 window.addEventListener('load', router);
+
+//Event listener que escucha las rutas, en este caso el hash al cual nos estamos moviendo.
+//cuando cambie un hash va a desencadenar una funcion
+//asi cuando carga por primera vez nuestra pagina ypara cuando hay un cambio dentro de un hash
+window.addEventListener('hashchange', router);

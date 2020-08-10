@@ -12,7 +12,9 @@ const resolverRoutes = (route)=>{
     //solo existen 999 personajes por lo que longitud del id debe ser menor o ogal 3
     if(route.length <= 3)
     {
-        //si route es igual a / es decir no hay hash, retorna el / de lo contrario el id
+        //si es <= 3 puede ser un id de personajes hasat 999 o puede ser un / que significa home
+        //hacemos la validacion, si existe el / es home, si existe mas de un elemento en la ruta
+        //significa que accedemos a un id
         let validRoute = route === '/' ? route : '/:id'
         return validRoute;
     }

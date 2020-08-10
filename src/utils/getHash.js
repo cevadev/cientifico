@@ -18,7 +18,7 @@ const getHash = () =>{
      * Por útlimo en el caso que no encuentre ninguna ruta a la cual esta accediendo indicamo con el OR || que solo envie
      * el slash '/'
      */
-    localtion.hash.slice(1).toLocaleLowerCase().split('/')[1] || '/';
+    return location.hash.slice(1).toLocaleLowerCase().split('/')[1] || '/';
 }
 
 //exportamos la funciones
