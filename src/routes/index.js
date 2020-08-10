@@ -4,6 +4,8 @@ import Header from '../templates/Header';
 import Home from '../pages/Home';
 import Character from '../pages/Character';
 import Error404 from '../pages/Error404';
+import getHash from '../utils/getHash';
+import resolverRoute from '../utils/resolveRoutes';
 
 //mediante routes el objeto  establecemos las rutas que necesita al app
 const routes = {
