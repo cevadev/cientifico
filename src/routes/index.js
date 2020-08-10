@@ -36,6 +36,21 @@ const router = async()=>{
     //mandamos el template de header hacia la vista header en el index.html. con el await decimos que lo que
     //pueda tardar del render suceda.
     header.innerHTML= await Header();
+
+    //obtenemos el hash donde se encuentre o la seccion donde se esté moviendo
+    let hash = getHash();
+
+    //manejamos la ruta. usamos await ya que el resolve se puede demorar en obtener el hash y pasarlo a la funcion
+    //hacer las validaciones necesarias y retornar el valor necesario
+    let route = resolverRoute(hash);
+
+    //render -> contiene el valor de las rutas especificado en el objeto route y las comparamos con la ruta
+    //obtenida de la funcion resolveRoute() 
+    //si routes[route] retorna un elemento retornamos dicho elemento, de lo contrario mostramos error4 404
+    let render = routes[route] ? routes[route] : Error404;
+
+    //pasamos el template a content
+    content.innerHTML = await render();
 };
 
 export default router;

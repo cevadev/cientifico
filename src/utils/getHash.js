@@ -1,3 +1,9 @@
+/**
+ * Funcion que obtiene el hash, esto significa que cuando nos movamos a un personaje a ese detalle
+ * vamos a manipular la url (#/id) y debemos obtener dicho id para saber cual es el personaje que estamos
+ * accediendo y así enviar el template correcto.
+ * Así tambien, si nos estamos moviendo hacia una seccion podemos hacer estos cambios.
+ */
 const getHash = () =>{
     /**
      * location -> elemento del navegador
